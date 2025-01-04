@@ -23,7 +23,17 @@ public class Admin extends User {
     }
 
     public void removeProduct(String productId) {
-        products.remove(productId);
+        products.removeIf(p -> p.getProductId().equals(productId));
+        System.out.println("Product removed with ID: " + productId);
+    }
+
+    public void updateStock(String productId, int newStock) {
+        for (Product product : products) {
+            if (product.getProductId().equals(productId)) {
+                product.setStock(newStock);
+                System.out.println("Stock updated for product: " + productId);
+            }
+        }
     }
 
 }

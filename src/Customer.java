@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer extends User {
-    private List<Order> orders;
-    private String shippingAddress;
+    List<Order> orders;
+    String shippingAddress;
 
     public Customer(int userId, String name, String email, String shippingAddress) {
         super(userId, name, email);
@@ -21,15 +21,25 @@ public class Customer extends User {
     }
 
     public void placeOrder(Product product, int quantity) {
-        product.reduceStock(quantity);
-        Order order = new Order (Product product, int quantity)
-        orders.add(order)
-        System.out.println("Order placed successfully: " + order);
+        if (product.getStock() >= quantity) {
+            Order order = new Order( this, product, quantity);
+            orders.add(order);
+            product.reduceStock(quantity);
+            System.out.println("Order placed: " + order.orderId);
+        } else {
+            System.out.println("Not enough stock");
+        }
     }
 
     public cancelOrder(Order order){
         orders.remove(order);
         System.out.println("Order cancelled: " + order);
 
+    }
+
+    public void cancelOrder(Order order) {
+        order.cancelOrder();
+        orders.remove(order);
+        order.product.increaseStock(order.quantity);
     }
 }
