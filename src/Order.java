@@ -16,6 +16,18 @@ public class Order {
         this.status = "Placed";
     }
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     public void cancelOrder() {
         status = "Cancelled";
     }

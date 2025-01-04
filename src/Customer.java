@@ -31,10 +31,22 @@ public class Customer extends User {
         }
     }
 
-    public void cancelOrder(Order order){
-        order.cancelOrder();
-        orders.remove(order);
-        order.product.increaseStock(order.quantity);
+    public void cancelOrder(String orderId) {
+        Order orderToCancel = null;
+        for (Order order : orders) {
+            if (order.getOrderId().equals(orderId)) {
+                orderToCancel = order;
+                break;
+            }
+        }
 
+        if (orderToCancel == null) {
+            System.out.println("Order with ID " + orderId + " not found.");
+            return;
+        }
+
+        orderToCancel.cancelOrder();
+        orderToCancel.getProduct().increaseStock(orderToCancel.getQuantity());
+        System.out.println("Order " + orderId + " has been successfully cancelled.");
     }
 }
