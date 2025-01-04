@@ -20,4 +20,6 @@ abstract class User {
     public int getUserId() {
         return userId;
     }
+
+    public abstract void displayDetails();
 }

@@ -48,6 +48,3 @@ public class Product {
         System.out.println("Stock: " + stock);
     }
 }
-}
-
-

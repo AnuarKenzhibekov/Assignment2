@@ -7,13 +7,13 @@ public class Order {
     double totalPrice;
     String status;
 
-    public Order(Customer customer, Product product, int quantity, double totalPrice) {
+    public Order(Customer customer, Product product, int quantity) {
         this.orderId = "ORDER" + orderCount++;
         this.customer = customer;
         this.product = product;
         this.quantity = quantity;
         this.totalPrice = product.getPrice() * quantity;
-        this.status = 'Placed';
+        this.status = "Placed";
     }
 
     public void cancelOrder() {
