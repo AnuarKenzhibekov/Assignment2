@@ -18,6 +18,8 @@ public class Main{
         c1.placeOrder(p1, 2);
         c2.placeOrder(p2, 5);
 
+        c1.cancelOrder("ORDER1");
+
         System.out.println("\n--- All Products ---");
         p1.displayDetails();
         p2.displayDetails();
