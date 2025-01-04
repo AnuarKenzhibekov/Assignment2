@@ -1,4 +1,4 @@
-public class User {
+abstract class User {
     public int userId;
     public String name;
     public String email;
@@ -8,8 +8,6 @@ public class User {
         this.name = name;
         this.email = email;
     }
-
-    public abstract void displayDetails();
 
     public String getEmail() {
         return email;

@@ -1,11 +1,11 @@
 public class Order {
-    private static int orderCount = 1;
-    public String orderId;
-    public Customer customer;
-    public Product product;
-    public int quantity;
-    public double totalPrice;
-    public String status;
+    static int orderCount = 1;
+    String orderId;
+    Customer customer;
+    Product product;
+    int quantity;
+    double totalPrice;
+    String status;
 
     public Order(Customer customer, Product product, int quantity, double totalPrice) {
         this.orderId = "ORDER" + orderCount++;

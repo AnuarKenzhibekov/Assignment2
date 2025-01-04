@@ -31,7 +31,7 @@ public class Customer extends User {
         }
     }
 
-    public cancelOrder(Order order){
+    public void cancelOrder(Order order){
         order.cancelOrder();
         orders.remove(order);
         order.product.increaseStock(order.quantity);
