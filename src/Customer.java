@@ -32,8 +32,9 @@ public class Customer extends User {
     }
 
     public cancelOrder(Order order){
+        order.cancelOrder();
         orders.remove(order);
-        System.out.println("Order cancelled: " + order);
+        order.product.increaseStock(order.quantity);
 
     }
 
